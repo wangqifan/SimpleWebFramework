@@ -3,9 +3,12 @@ from src.User import user
 from src.request import Request
 from src.utils import template
 from src.respone import  response_with_headers,redirect
+from src.routes import route
 
 path='../Data/userdata.txt'
 
+
+@route('/')
 def Index(request):
     rsc= template('index.html')
     header={
@@ -34,7 +37,7 @@ def Index(request):
         text+=temp
     return response_with_headers(header,code=200)+'r\n\r\n'+rsc.format(text)
 
-
+@route('/Add')
 def Add(request):
     rsc=template('add.html')
     header = {
@@ -42,6 +45,7 @@ def Add(request):
     }
     return response_with_headers(header, code=200) + 'r\n\r\n' + rsc
 
+@route('/Add_Post')
 def Add_Post(request):
       fromdata=request.form()
       name=fromdata.get('name','')
@@ -51,11 +55,13 @@ def Add_Post(request):
       insert(u)
       return redirect('/')
 
+
+@route('/Delete')
 def  Delete(request):
     id=request.query.get('id',1)
     deletebyid(id)
     return  redirect('/')
-
+@route('/Edit')
 def  Edit(request):
     return "xiugai"
 

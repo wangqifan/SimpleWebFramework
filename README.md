@@ -1,5 +1,6 @@
 # SimpleWebFramework
-building webserice with socket
+
+使用socket来构建web服务
 
 
 项目介绍 
@@ -10,7 +11,13 @@ building webserice with socket
 
 
 
-
+web框架的套路
+-----
+    * 对客户端发送过来的请求(request)进行解析
+    * 根据请求找到相对应的处理模块
+    * 可能需要查询数据库取出数据
+    * 可能需要将取出的数据传入模板进行渲染
+    * 向客户端返回响应请求
 
 原理介绍
 ------

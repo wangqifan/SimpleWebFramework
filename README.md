@@ -57,20 +57,15 @@ def path_parise(path):
 
 
 ```
-解析后进入路由模块，根据路径查找路由表，找到对应的处理函数
-```
-route_dict = {
-    '/': Index,
-    '/Index':Index,
-    '/Add':Add,
-    '/Delete':Delete,
-    '/Edit':Edit,
-    'static':route_static,
-    '/Add_Post':Add_Post,
-}
+解析后进入路由模块，根据路径查找路由表，找到对应的处理函数<br>
+路由装饰器
+def route(url):
+    def decorator(func):
+        route_dict[url]=func
+        return func
+    return decorator
 
 ```
-
 静态文件的获取
 ```
 dict_type={

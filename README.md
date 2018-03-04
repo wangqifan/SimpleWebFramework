@@ -59,6 +59,8 @@ def path_parise(path):
 ```
 解析后进入路由模块，根据路径查找路由表，找到对应的处理函数<br>
 路由装饰器
+
+
 def route(url):
     def decorator(func):
         route_dict[url]=func
@@ -67,12 +69,14 @@ def route(url):
 
 ```
 静态文件的获取
+
 ```
 dict_type={
         'html':'text/html; charset=utf-8',
          'css':'text/css',
         'js':'application/javascript'
     }
+    
 
 def route_static(request):
     """
@@ -91,6 +95,8 @@ def route_static(request):
           header = 'HTTP/1.1 200 OK\r\nContent-Type:{}\r\n\r\n'.format(content_type)
           res= header + str(f.read(),encoding='utf-8')
     return res
+    
+    
 ```
 重定向的实现
 ```
